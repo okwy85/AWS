@@ -1,0 +1,14 @@
+#Lambda 
+>>>No Server Requirement: allows a user to run codes without requiring the user to provision or manage servers
+>>>Automatic Scaling: AWS LAmbda automatically scales our application by running codes in response to each trigger. Our codes run in parallel and processes each triggers individually. Scaling precisely with the size of the workload
+>>>Billing: is metered on the seconds: you only pay for the amount of time your code is running.
+
+It is a compute service provided by AWS. It can run code written on AWS supported LAnguages E.g Node.js, Java, C-sharp, Go and Python. It can be used to run codes in response to events from other services and based on the event, it can run functions.
+
+Where is Lambda used???
+>>>used to process images when it's uploaded in an S3 Bucket: when a picture is uploaded to an S3 bucket, Lambda is triggered and it processes and converts the picture into a format that the program requires
+>>>>To analyze Social Media data: if we are collecting the #trending data
+
+How it works=====
+client sends data, LAmbda receives the data and depending on the size, it allocates the required container/s to satisfy the query. A container contains the code the developer has provided to satisfy the query. A container image is a light weight, stand-alone, executable package of a piece of software, that includes everything needed to run it like the codes, runtime, system tools, system libraries and any other setting needed. available on linux and window based application. Containerized software will always run the same regardless of the environment it is running on. It isolates software from its surrounding. eg the difference with a development and staging environment.
+the more the request the more containers are used and vice versa
