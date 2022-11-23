@@ -1,0 +1,51 @@
+#start ec2 instance using Lambda at 8am and stopped at 6pm automatically ('i-082b700a5b7ce5a5f', 'i-057aba5ccc4dd6b42', 'i-04936ee51043fc0ae')
+Create a custom AWS Identity and Access Management (IAM) policy and execution role for your Lambda function.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Start*",
+        "ec2:Stop*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Create Lambda functions that stop and start your EC2 instances.
+=====start===========
+import boto3
+region = 'us-east-1'
+instances = ['i-082b700a5b7ce5a5f', 'i-057aba5ccc4dd6b42', 'i-04936ee51043fc0ae']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+    ec2.start_instances(InstanceIds=instances)
+    print('started your instances: ' + str(instances))
+   
+=========stop================
+import boto3
+region = 'us-east-1'
+instances = ['i-082b700a5b7ce5a5f', 'i-057aba5ccc4dd6b42', 'i-04936ee51043fc0ae']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+    ec2.stop_instances(InstanceIds=instances)
+    print('stopped your instances: ' + str(instances))
+
+Test your Lambda functions.
+Create EventBridge rules that trigger your function on a schedule.
+stop:cron(0 18 ? * MON-FRI *)
+start:cron(0 8 ? * MON-FRI *)
