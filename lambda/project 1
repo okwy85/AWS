@@ -1,0 +1,6 @@
+#create a temporary storage as a system to back-up  data as soon as it is uploaded ( a near real-time backup)
+#" create two S3 buckets--->>>1. source bucket 2. destination bucket
+#create IAM role
+#create a lambda function to copy files between buckets.
+#create a trigger to trigger the lambda function...in this case any changes in the source bucket
+#testing.
