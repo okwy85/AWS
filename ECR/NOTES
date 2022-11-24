@@ -1,0 +1,3 @@
+ECR: (Elastic Container Registry) is a fully managed container registry that makes it easy to store, manage, share and deploy your container images and artifacts anywhere.
+it si fully managed by AWS.
+It can be both Private and Public Registry.
