@@ -1,0 +1,7 @@
+EKS is Elastic Kubernetes Service: it is a fully managed service that makes it easy for you to use Kubernetes on AWS without needing to install and operate your own Kubernetes control plane
+
+it operates in 4 easy steps
+>>>Provision an EKS cluster: EKS automtically deploys kubernetes control plane.
+>>>Deploy worker nodes: Add worker nodes to your EKS cluster.
+>>>Connect to EKS: Point your favorite Kubernetes tooling at your EKS cluster.
+>>>Run Kubernetes apps: Deploy your Kubernetes application to your EKS cluster.
